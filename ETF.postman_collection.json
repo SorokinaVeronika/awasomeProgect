@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "1ab363c4-872c-4b22-8f05-ec7536a50e17",
+		"name": "ETF",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26763608"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List ETFs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjk0Nzk3NzM3fQ.Dm_sHS1b91G_hjMa0XyM5zNrOKQjsW-ATqTBp4F_9fs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/secured/etfs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"secured",
+						"etfs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ETF Data",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjk0Nzk3NzM3fQ.Dm_sHS1b91G_hjMa0XyM5zNrOKQjsW-ATqTBp4F_9fs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/secured/etf/CWI",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"secured",
+						"etf",
+						"CWI"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
