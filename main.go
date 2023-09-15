@@ -1,10 +1,12 @@
 package main
 
 import (
-	"awesomeProject/internal"
-	"github.com/sirupsen/logrus"
 	"net/http"
 	"os"
+	
+	"github.com/sirupsen/logrus"
+
+	"awesomeProject/internal"
 )
 
 const (
@@ -15,6 +17,8 @@ const (
 	dbPassword = "admin"
 	dbName     = "database"
 	serverAddr = ":8080"
+	dns	   = "https://www.ssga.com"
+	jwtSecret  = "something"
 )
 
 func main() {
@@ -41,7 +45,7 @@ func main() {
 	}
 
 	// Create a new DailyDataUpdater instance
-	ddu := internal.NewDailyDataUpdater("https://www.ssga.com", store, logger)
+	ddu := internal.NewDailyDataUpdater(dns , store, logger)
 
 	go ddu.Run()
 
@@ -49,7 +53,7 @@ func main() {
 	server := internal.NewServer(logger, store)
 
 	// Create HTTP handlers
-	handlers := internal.NewHandler(server, []byte("something"))
+	handlers := internal.NewHandler(server, jwtSecret)
 
 	// Create a router and set up routes
 	r := internal.MakeHTTPHandler(handlers)
